@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="660" viewBox="0 0 1120 660" role="img" aria-label="MythForge architecture">
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .panel { fill: #16233b; stroke: #2b3d5c; stroke-width: 1.2; rx: 10; }
+      .panelAlt { fill: #132035; stroke: #2b3d5c; stroke-width: 1.2; rx: 10; }
+      .chip { fill: #1d2f4d; stroke: #3b5680; stroke-width: 1; rx: 7; }
+      .accent { fill: #1f4d46; stroke: #39a58f; stroke-width: 1.2; rx: 8; }
+      .warn { fill: #3b2a1d; stroke: #c0843a; stroke-width: 1.2; rx: 8; }
+      .title { fill: #e8eefc; font: 600 15px "Segoe UI", "Microsoft YaHei", sans-serif; }
+      .sub { fill: #9fb0cc; font: 12px "Segoe UI", "Microsoft YaHei", sans-serif; }
+      .small { fill: #c7d3e8; font: 12px "Segoe UI", "Microsoft YaHei", sans-serif; }
+      .tiny { fill: #8ea3c4; font: 11px "Segoe UI", "Microsoft YaHei", sans-serif; }
+      .flow { stroke: #4f6d99; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+      .flowAccent { stroke: #39a58f; stroke-width: 1.6; fill: none; marker-end: url(#arrowAccent); }
+      .lane { fill: #0c1526; stroke: #22314c; stroke-width: 1; rx: 8; }
+      .label { fill: #6f86a8; font: 600 11px "Segoe UI", "Microsoft YaHei", sans-serif; letter-spacing: 1px; }
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 z" fill="#4f6d99"/>
+    </marker>
+    <marker id="arrowAccent" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 z" fill="#39a58f"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1120" height="660"/>
+
+  <!-- Layer labels -->
+  <text class="label" x="30" y="34">CONTENT</text>
+  <text class="label" x="30" y="150">COMPILER (C++17)</text>
+  <text class="label" x="30" y="352">RUNTIME VM</text>
+  <text class="label" x="30" y="540">SURFACES</text>
+
+  <!-- Content layer -->
+  <g>
+    <rect class="panel" x="30" y="46" width="320" height="70"/>
+    <text class="title" x="48" y="76">Quest graph</text>
+    <text class="sub" x="48" y="96">kind=quest · schema-validated nodes</text>
+
+    <rect class="panel" x="370" y="46" width="340" height="70"/>
+    <text class="title" x="388" y="76">Dialogue graph + Timeline</text>
+    <text class="sub" x="388" y="96">lines · choices · flags · .playable</text>
+
+    <rect class="panel" x="730" y="46" width="360" height="70"/>
+    <text class="title" x="748" y="76">Skill timeline</text>
+    <text class="sub" x="748" y="96">frames (timeMs) · damage/buff/vfx/sfx/move</text>
+  </g>
+
+  <path class="flow" d="M190,116 L190,150"/>
+  <path class="flow" d="M540,116 L540,150"/>
+  <path class="flow" d="M910,116 L910,150"/>
+
+  <!-- Compiler layer -->
+  <g>
+    <rect class="panelAlt" x="30" y="152" width="1060" height="176"/>
+    <rect class="chip" x="50" y="176" width="150" height="58"/>
+    <text class="small" x="64" y="199">Schema validate</text>
+    <text class="tiny" x="64" y="218">props · ports · cycles</text>
+
+    <path class="flow" d="M200,205 L228,205"/>
+    <rect class="chip" x="230" y="176" width="156" height="58"/>
+    <text class="small" x="244" y="199">Lower to AST</text>
+    <text class="tiny" x="244" y="218">graph → MythScript</text>
+
+    <path class="flow" d="M386,205 L414,205"/>
+    <rect class="chip" x="416" y="176" width="150" height="58"/>
+    <text class="small" x="430" y="199">Sema</text>
+    <text class="tiny" x="430" y="218">types · events · hints</text>
+
+    <path class="flow" d="M566,205 L594,205"/>
+    <rect class="chip" x="596" y="176" width="190" height="58"/>
+    <text class="small" x="610" y="199">SSA + optimize</text>
+    <text class="tiny" x="610" y="218">phi · CSE · DCE · threading</text>
+
+    <path class="flow" d="M786,205 L814,205"/>
+    <rect class="chip" x="816" y="176" width="150" height="58"/>
+    <text class="small" x="830" y="199">Codegen</text>
+    <text class="tiny" x="830" y="218">32-bit registers</text>
+
+    <path class="flow" d="M966,205 L994,205"/>
+    <rect class="accent" x="996" y="172" width="76" height="66"/>
+    <text class="small" x="1010" y="198">.mfb</text>
+    <text class="tiny" x="1006" y="217">debug + hash</text>
+
+    <rect class="lane" x="50" y="256" width="1022" height="54"/>
+    <text class="tiny" x="68" y="279">Diagnostics: MFC0xxx–MFC5xxx · line/col · nodeId · hint</text>
+    <text class="tiny" x="68" y="297">Incremental build: SHA-256 cache · dependency propagation · manifest</text>
+  </g>
+
+  <path class="flow" d="M560,328 L560,352"/>
+
+  <!-- Runtime layer -->
+  <g>
+    <rect class="panelAlt" x="30" y="354" width="1060" height="148"/>
+    <rect class="chip" x="50" y="376" width="190" height="52"/>
+    <text class="small" x="64" y="398">Heap-frame coroutines</text>
+    <text class="tiny" x="64" y="416">regs + pc · no native stack</text>
+
+    <rect class="chip" x="252" y="376" width="190" height="52"/>
+    <text class="small" x="266" y="398">Timer heap / waiters</text>
+    <text class="tiny" x="266" y="416">host-driven virtual clock</text>
+
+    <rect class="chip" x="454" y="376" width="190" height="52"/>
+    <text class="small" x="468" y="398">Predicate filters</text>
+    <text class="tiny" x="468" y="416">postfix event matching</text>
+
+    <rect class="chip" x="656" y="376" width="190" height="52"/>
+    <text class="small" x="670" y="398">Structured trace</text>
+    <text class="tiny" x="670" y="416">emit/call/wait/fault + node</text>
+
+    <rect class="warn" x="858" y="372" width="214" height="60"/>
+    <text class="small" x="872" y="396">Fault isolation</text>
+    <text class="tiny" x="872" y="415">per-instance error · nodeId</text>
+  </g>
+
+  <path class="flow" d="M190,502 L190,526"/>
+  <path class="flow" d="M430,502 L430,526"/>
+  <path class="flow" d="M670,502 L670,526"/>
+  <path class="flow" d="M910,502 L910,526"/>
+
+  <!-- Surfaces -->
+  <g>
+    <rect class="panel" x="30" y="528" width="300" height="72"/>
+    <text class="title" x="46" y="556">Unity editors</text>
+    <text class="sub" x="46" y="576">quest · dialogue+Timeline · skill</text>
+
+    <rect class="panel" x="342" y="528" width="300" height="72"/>
+    <text class="title" x="358" y="556">Live preview</text>
+    <text class="sub" x="358" y="576">real VM · node highlight · JSONL</text>
+
+    <rect class="accent" x="654" y="528" width="230" height="72"/>
+    <text class="title" x="670" y="556">mythforge.dll</text>
+    <text class="sub" x="670" y="576">C ABI · Unity / Kotlin / Swift</text>
+
+    <rect class="panel" x="896" y="528" width="194" height="72"/>
+    <text class="title" x="912" y="556">mfd / agent</text>
+    <text class="sub" x="912" y="576">service · auto repair</text>
+  </g>
+
+  <text class="tiny" x="30" y="634">Verification: 61 native tests · 78 Unity EditMode tests · 2000-node benchmark · scripts/e2e.ps1 → E2E PASSED</text>
+</svg>

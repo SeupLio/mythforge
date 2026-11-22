@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "kind": "dialogue",
+  "id": "d_elder_intro",
+  "title": "长老的委托",
+  "meta": {
+    "chapter": "prologue",
+    "timeline": "TL_ElderIntro"
+  },
+  "nodes": [
+    { "id": "n_start", "type": "dialogue.start", "props": {} },
+    {
+      "id": "n_line_greet",
+      "type": "dialogue.line",
+      "props": { "speaker": "Elder", "text": "旅行者，你终于来了。", "l10nKey": "d_elder_intro.1" }
+    },
+    {
+      "id": "n_choice",
+      "type": "dialogue.choice",
+      "props": { "speaker": "Elder", "options": "我愿意帮忙|我还没准备好" }
+    },
+    {
+      "id": "n_timeline",
+      "type": "dialogue.timeline",
+      "props": { "asset": "Assets/MythForgeContent/Timelines/TL_ElderIntro.playable", "waitForFinish": true }
+    },
+    {
+      "id": "n_line_quest",
+      "type": "dialogue.line",
+      "props": { "speaker": "Elder", "text": "森林里的狼群最近很不安分，帮帮我们吧。", "l10nKey": "d_elder_intro.2" }
+    },
+    {
+      "id": "n_wait",
+      "type": "dialogue.wait",
+      "props": { "seconds": 0.5 }
+    },
+    { "id": "n_end", "type": "dialogue.end", "props": {} }
+  ],
+  "edges": [
+    { "from": "n_start", "to": "n_line_greet" },
+    { "from": "n_line_greet", "to": "n_choice" },
+    { "from": "n_choice", "to": "n_timeline" },
+    { "from": "n_timeline", "to": "n_line_quest" },
+    { "from": "n_line_quest", "to": "n_wait" },
+    { "from": "n_wait", "to": "n_end" }
+  ]
+}

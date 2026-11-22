@@ -1,0 +1,5 @@
+module MythForgeSDK {
+    header "../include/mf_sdk.h"
+    link "mythforge"
+    export *
+}

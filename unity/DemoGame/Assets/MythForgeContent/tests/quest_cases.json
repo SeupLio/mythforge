@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "name": "forest_wolves_happy_path",
+      "quest": "q_forest_wolves",
+      "events": [
+        { "name": "Kill", "fields": { "target": "Wolf" } },
+        { "name": "Kill", "fields": { "target": "Wolf", "count": 1 } },
+        { "name": "Talk", "fields": { "npc": "Elder" } }
+      ],
+      "expectEmits": ["QuestStarted", "ObjectiveProgress", "QuestCompleted"]
+    },
+    {
+      "name": "forest_wolves_ignores_other_targets",
+      "quest": "q_forest_wolves",
+      "events": [
+        { "name": "Kill", "fields": { "target": "Boar" } },
+        { "name": "Kill", "fields": { "target": "Wolf" } },
+        { "name": "Kill", "fields": { "target": "Wolf" } },
+        { "name": "Talk", "fields": { "npc": "Innkeeper" } },
+        { "name": "Talk", "fields": { "npc": "Elder" } }
+      ],
+      "expectEmits": ["QuestStarted", "ObjectiveProgress", "QuestCompleted"]
+    },
+    {
+      "name": "lost_sheep_happy_path",
+      "quest": "q_lost_sheep",
+      "events": [
+        { "name": "Collect", "fields": { "item": "Wool" } },
+        { "name": "Collect", "fields": { "item": "Wool" } },
+        { "name": "Collect", "fields": { "item": "Wool" } },
+        { "name": "Reach", "fields": { "area": "Hilltop" } }
+      ],
+      "expectEmits": ["QuestStarted", "ObjectiveProgress", "Log", "QuestCompleted"]
+    }
+  ]
+}

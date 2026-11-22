@@ -1,0 +1,49 @@
+{
+  "formatVersion": 1,
+  "modules": [
+    {
+      "artifact": "d_elder_intro.mfb",
+      "artifactHash": "29c45b90804205b1f1c34e97316d6af6534609c9b375ac175482f10c223c0d5e",
+      "chunks": [
+        "d_elder_intro/start"
+      ],
+      "id": "d_elder_intro",
+      "kind": "dialogue",
+      "source": "dialogues/d_elder_intro.json",
+      "sourceHash": "6beaeaaf55b28ec8c0b4f16f3dde3f4dca5e2c3457b4fc0fda813ec00e54f41b"
+    },
+    {
+      "artifact": "q_forest_wolves.mfb",
+      "artifactHash": "971b5db1b8b13ee134eaf197e5a0a3d4404c85a0676516d6c8a1b7c5fb73a13d",
+      "chunks": [
+        "q_forest_wolves/start"
+      ],
+      "id": "q_forest_wolves",
+      "kind": "quest",
+      "source": "quests/q_forest_wolves.json",
+      "sourceHash": "d12ba747a287781839ef100117f9e6d47dec938cc1aab5a07eb08b5aad86d608"
+    },
+    {
+      "artifact": "q_lost_sheep.mfb",
+      "artifactHash": "67574fb87601036ea3dc37c70e688c87270cdcb1ecffa99865ca5122e1e0eb08",
+      "chunks": [
+        "q_lost_sheep/start"
+      ],
+      "id": "q_lost_sheep",
+      "kind": "quest",
+      "source": "quests/q_lost_sheep.json",
+      "sourceHash": "af11ae61961ec197a6cc1d289f49bb1685ddb4fa7a54809952a9106e96cfecc2"
+    },
+    {
+      "artifact": "sk_wolf_bite.mfb",
+      "artifactHash": "1f2b14289b27de7cd5cffa13c54ea9b47fd0bc0dd2ec16be1151a31e4e854cd1",
+      "chunks": [
+        "sk_wolf_bite/cast"
+      ],
+      "id": "sk_wolf_bite",
+      "kind": "skill",
+      "source": "skills/sk_wolf_bite.json",
+      "sourceHash": "83df748fa4b6717a5c6fdd9ed8ba7a4e626e533b6b410ce033a00801b8210c6a"
+    }
+  ]
+}

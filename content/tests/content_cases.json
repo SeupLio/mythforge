@@ -1,0 +1,36 @@
+{
+  "cases": [
+    {
+      "name": "elder_intro_dialogue_happy_path",
+      "content": "d_elder_intro",
+      "events": [
+        { "name": "DialogueAdvance", "fields": {} },
+        { "name": "DialogueChoiceSelected", "fields": {} },
+        {
+          "name": "TimelineFinished",
+          "fields": { "asset": "Assets/MythForgeContent/Timelines/TL_ElderIntro.playable" }
+        },
+        { "name": "DialogueAdvance", "fields": {} }
+      ],
+      "expectEmits": [
+        "DialogueStarted",
+        "DialogueLine",
+        "DialogueChoice",
+        "DialogueLine",
+        "DialogueEnded"
+      ]
+    },
+    {
+      "name": "wolf_bite_skill_timeline",
+      "content": "sk_wolf_bite",
+      "events": [],
+      "expectEmits": [
+        "SkillCast",
+        "SkillFrame",
+        "SkillFrame",
+        "SkillFrame",
+        "SkillEnded"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "kind": "quest",
+  "id": "q_lost_sheep",
+  "title": "走失的羊",
+  "meta": {
+    "author": "content-team",
+    "chapter": "prologue"
+  },
+  "nodes": [
+    { "id": "n_start", "type": "quest.start", "props": {} },
+    {
+      "id": "n_collect",
+      "type": "quest.condition.collect",
+      "props": { "item": "Wool", "count": 3 }
+    },
+    {
+      "id": "n_reach",
+      "type": "quest.condition.reach",
+      "props": { "area": "Hilltop" }
+    },
+    { "id": "n_timer", "type": "quest.timer", "props": { "seconds": 1.5 } },
+    { "id": "n_log", "type": "quest.log", "props": { "text": "羊群安全了" } },
+    {
+      "id": "n_reward",
+      "type": "quest.reward",
+      "props": { "exp": 50, "item": "WoolCloak" }
+    },
+    { "id": "n_end", "type": "quest.end", "props": { "result": "success" } }
+  ],
+  "edges": [
+    { "from": "n_start", "to": "n_collect" },
+    { "from": "n_collect", "to": "n_reach" },
+    { "from": "n_reach", "to": "n_timer" },
+    { "from": "n_timer", "to": "n_log" },
+    { "from": "n_log", "to": "n_reward" },
+    { "from": "n_reward", "to": "n_end" }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "edges": [
+    {
+      "from": "n_start",
+      "to": "n_line_greet"
+    },
+    {
+      "from": "n_line_greet",
+      "to": "n_choice"
+    },
+    {
+      "from": "n_choice",
+      "to": "n_timeline"
+    },
+    {
+      "from": "n_timeline",
+      "to": "n_line_quest"
+    },
+    {
+      "from": "n_line_quest",
+      "to": "n_wait"
+    },
+    {
+      "from": "n_wait",
+      "to": "n_end"
+    }
+  ],
+  "id": "d_elder_intro",
+  "kind": "dialogue",
+  "meta": {
+    "chapter": "prologue",
+    "timeline": "TL_ElderIntro"
+  },
+  "nodes": [
+    {
+      "editor": {
+        "x": 0,
+        "y": 0
+      },
+      "id": "n_start",
+      "props": {},
+      "type": "dialogue.start"
+    },
+    {
+      "editor": {
+        "x": -302,
+        "y": -44.666667938232422
+      },
+      "id": "n_line_greet",
+      "props": {
+        "l10nKey": "d_elder_intro.1",
+        "speaker": "Elder",
+        "text": "旅行者，你终于来了。"
+      },
+      "type": "dialogue.line"
+    },
+    {
+      "editor": {
+        "x": 72.666664123535156,
+        "y": -210
+      },
+      "id": "n_choice",
+      "props": {
+        "options": "我愿意帮忙|我还没准备好",
+        "speaker": "Elder"
+      },
+      "type": "dialogue.choice"
+    },
+    {
+      "editor": {
+        "x": -233.33332824707031,
+        "y": -150
+      },
+      "id": "n_timeline",
+      "props": {
+        "asset": "Assets/MythForgeContent/Timelines/TL_ElderIntro.playable",
+        "waitForFinish": true
+      },
+      "type": "dialogue.timeline"
+    },
+    {
+      "editor": {
+        "x": -289.33334350585938,
+        "y": 70
+      },
+      "id": "n_line_quest",
+      "props": {
+        "l10nKey": "d_elder_intro.2",
+        "speaker": "Elder",
+        "text": "森林里的狼群最近很不安分，帮帮我们吧。"
+      },
+      "type": "dialogue.line"
+    },
+    {
+      "editor": {
+        "x": -119.33333587646484,
+        "y": 191.33332824707031
+      },
+      "id": "n_wait",
+      "props": {
+        "seconds": 0.5
+      },
+      "type": "dialogue.wait"
+    },
+    {
+      "editor": {
+        "x": 196,
+        "y": 57.999996185302734
+      },
+      "id": "n_end",
+      "props": {},
+      "type": "dialogue.end"
+    }
+  ],
+  "schemaVersion": 1,
+  "title": "长老的委托"
+}

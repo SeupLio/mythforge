@@ -1,0 +1,11 @@
+{
+  "name": "com.mythforge.editor",
+  "displayName": "MythForge Editor",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "Data-driven quest graph editor for the MythForge content pipeline.",
+  "keywords": ["mythforge", "quest", "graph", "content"],
+  "author": {
+    "name": "MythForge"
+  }
+}

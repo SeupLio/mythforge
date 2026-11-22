@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "skill",
+  "id": "sk_wolf_bite",
+  "title": "恶狼撕咬",
+  "meta": {
+    "cooldownMs": 4000
+  },
+  "nodes": [
+    { "id": "n_cast", "type": "skill.cast", "props": {} },
+    {
+      "id": "n_windup",
+      "type": "skill.frame",
+      "props": { "timeMs": 0, "event": "vfx", "target": "", "amount": 0, "asset": "VFX_BiteWindup" }
+    },
+    {
+      "id": "n_hit",
+      "type": "skill.frame",
+      "props": { "timeMs": 120, "event": "damage", "target": "Player", "amount": 12, "asset": "" }
+    },
+    {
+      "id": "n_roar",
+      "type": "skill.frame",
+      "props": { "timeMs": 300, "event": "sfx", "target": "", "amount": 0, "asset": "SFX_WolfHowl" }
+    },
+    { "id": "n_end", "type": "skill.end", "props": {} }
+  ],
+  "edges": [
+    { "from": "n_cast", "to": "n_windup" },
+    { "from": "n_windup", "to": "n_hit" },
+    { "from": "n_hit", "to": "n_roar" },
+    { "from": "n_roar", "to": "n_end" }
+  ]
+}

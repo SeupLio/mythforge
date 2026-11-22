@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "kinds": {
+    "quest": {
+      "nodeTypes": {
+        "quest.start": {
+          "minInputs": 0,
+          "maxInputs": 0,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {}
+        },
+        "quest.end": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 0,
+          "maxOutputs": 0,
+          "props": {
+            "result": { "type": "string", "required": false, "default": "success" }
+          }
+        },
+        "quest.condition.kill": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "target": { "type": "string", "required": true },
+            "count": { "type": "int", "required": false, "default": 1 }
+          }
+        },
+        "quest.condition.collect": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "item": { "type": "string", "required": true },
+            "count": { "type": "int", "required": false, "default": 1 }
+          }
+        },
+        "quest.condition.reach": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "area": { "type": "string", "required": true }
+          }
+        },
+        "quest.condition.talk": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "npc": { "type": "string", "required": true }
+          }
+        },
+        "quest.timer": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "seconds": { "type": "float", "required": false, "default": 1.0 }
+          }
+        },
+        "quest.log": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "text": { "type": "string", "required": true }
+          }
+        },
+        "quest.reward": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "exp": { "type": "int", "required": false, "default": 0 },
+            "item": { "type": "string", "required": false, "default": "" }
+          }
+        },
+        "quest.depends": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "questId": { "type": "string", "required": true }
+          }
+        }
+      }
+    },
+    "dialogue": {
+      "nodeTypes": {
+        "dialogue.start": {
+          "minInputs": 0,
+          "maxInputs": 0,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {}
+        },
+        "dialogue.line": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "speaker": { "type": "string", "required": true },
+            "text": { "type": "string", "required": true },
+            "l10nKey": { "type": "string", "required": false, "default": "" }
+          }
+        },
+        "dialogue.choice": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "speaker": { "type": "string", "required": false, "default": "" },
+            "options": { "type": "string", "required": true }
+          }
+        },
+        "dialogue.flag": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "flag": { "type": "string", "required": true }
+          }
+        },
+        "dialogue.timeline": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "asset": { "type": "string", "required": true },
+            "waitForFinish": { "type": "bool", "required": false, "default": true }
+          }
+        },
+        "dialogue.wait": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "seconds": { "type": "float", "required": false, "default": 1.0 }
+          }
+        },
+        "dialogue.end": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 0,
+          "maxOutputs": 0,
+          "props": {}
+        }
+      }
+    },
+    "skill": {
+      "nodeTypes": {
+        "skill.cast": {
+          "minInputs": 0,
+          "maxInputs": 0,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {}
+        },
+        "skill.frame": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 1,
+          "maxOutputs": 1,
+          "props": {
+            "timeMs": { "type": "int", "required": true, "default": 0 },
+            "event": { "type": "string", "required": true },
+            "target": { "type": "string", "required": false, "default": "" },
+            "amount": { "type": "int", "required": false, "default": 0 },
+            "asset": { "type": "string", "required": false, "default": "" }
+          }
+        },
+        "skill.end": {
+          "minInputs": 1,
+          "maxInputs": 1,
+          "minOutputs": 0,
+          "maxOutputs": 0,
+          "props": {}
+        }
+      }
+    }
+  }
+}

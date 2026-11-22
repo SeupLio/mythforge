@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+*.mfb binary
+*.playable binary
+*.png binary
+*.jpg binary
+*.dll binary
+*.exe binary
+*.a binary

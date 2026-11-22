@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "kind": "quest",
+  "id": "q_forest_wolves",
+  "title": "森林狼患",
+  "meta": {
+    "author": "content-team",
+    "chapter": "prologue"
+  },
+  "nodes": [
+    { "id": "n_start", "type": "quest.start", "props": {} },
+    {
+      "id": "n_kill",
+      "type": "quest.condition.kill",
+      "props": { "target": "Wolf", "count": 2 }
+    },
+    {
+      "id": "n_talk",
+      "type": "quest.condition.talk",
+      "props": { "npc": "Elder" }
+    },
+    {
+      "id": "n_reward",
+      "type": "quest.reward",
+      "props": { "exp": 100, "item": "IronSword" }
+    },
+    {
+      "id": "n_end",
+      "type": "quest.end",
+      "props": { "result": "success" }
+    }
+  ],
+  "edges": [
+    { "from": "n_start", "to": "n_kill" },
+    { "from": "n_kill", "to": "n_talk" },
+    { "from": "n_talk", "to": "n_reward" },
+    { "from": "n_reward", "to": "n_end" }
+  ]
+}
