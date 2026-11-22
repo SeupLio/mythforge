@@ -62,10 +62,12 @@ set_target_properties(mythforge_sdk PROPERTIES
   CXX_VISIBILITY_PRESET hidden
   VISIBILITY_INLINES_HIDDEN ON
 )
-if(NOT MSVC)
+if(MINGW)
   # Avoid a runtime dependency on MinGW's libstdc++/libgcc DLLs so a Unity
   # Editor can load the plugin without shipping extra DLLs.
   target_link_options(mythforge_sdk PRIVATE -static -static-libgcc -static-libstdc++)
+endif()
+if(NOT MSVC)
   target_compile_options(mythforge_sdk PRIVATE -Wall -Wextra -Werror)
 else()
   target_compile_options(mythforge_sdk PRIVATE /W4 /WX)
